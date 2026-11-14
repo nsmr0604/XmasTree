@@ -1,0 +1,435 @@
+{
+    "saveCode": {
+        "length": 6,
+        "minimum": 100000,
+        "maximum": 999999,
+        "generationAttempts": 100
+    },
+    "decorationPlacement": {
+        "angleStepMinimum": 0.08,
+        "angleStepMaximum": 0.5,
+        "angleClearanceRatio": 1.8,
+        "angleCountMinimum": 8,
+        "angleCountMaximum": 64,
+        "surfaceOffset": 0.01,
+        "orientationThreshold": 0.000001
+    },
+    "decorations": {
+        "limits": {
+            "totalObjects": 50,
+            "perType": 20
+        },
+        "colors": [
+            "#ff3333",
+            "#ffd700",
+            "#3399ff",
+            "#ffffff",
+            "#ff66aa",
+            "#66dd88",
+            "#00ac9a",
+            "#eb6ea0"
+        ],
+        "sizes": [
+            0.18,
+            0.22,
+            0.26,
+            0.2,
+            0.24
+        ],
+        "metalness": 0.15,
+        "roughness": 0.3,
+        "ball": {
+            "metalness": 0.35,
+            "roughness": 0.3,
+            "segments": [
+                16,
+                12
+            ],
+            "capColor": "#d4af37",
+            "capRadiusRatio": 0.26,
+            "capSegments": [
+                12,
+                8
+            ],
+            "capDepthRatio": 0.92,
+            "capMetalness": 0.75,
+            "capRoughness": 0.25,
+            "loopRadiusRatio": 0.17,
+            "loopTubeRadiusRatio": 0.035,
+            "loopSegments": [
+                8,
+                16
+            ],
+            "loopYRatio": 0.04,
+            "loopDepthRatio": 1.12,
+            "stripeColor": "#f5d76e",
+            "stripeRadiusRatio": 0.72,
+            "stripeTubeRadiusRatio": 0.035,
+            "stripeSegments": [
+                8,
+                24
+            ],
+            "stripeMetalness": 0.65,
+            "stripeRoughness": 0.25,
+            "clearanceRatio": 1.35
+        },
+        "star": {
+            "pointCount": 5,
+            "innerRadiusRatio": 0.45,
+            "depthRatio": 0.25,
+            "bevelEnabled": false,
+            "accentColor": "#fff0a8",
+            "accentMetalness": 0.65,
+            "accentRoughness": 0.25,
+            "centerRadiusRatio": 0.22,
+            "centerSegments": [
+                12,
+                8
+            ],
+            "centerDepthOffsetRatio": 0.025,
+            "loopRadiusRatio": 0.14,
+            "loopTubeRadiusRatio": 0.035,
+            "loopSegments": [
+                8,
+                16
+            ],
+            "loopYRatio": 0.98,
+            "clearanceRatio": 1.25
+        },
+        "snowflake": {
+            "colors": [
+                "#87cefa",
+                "#ffffff",
+                "#b0e0e6",
+                "#dbeafe"
+            ],
+            "armCount": 3,
+            "armWidthRatio": 0.16,
+            "armLengthRatio": 2,
+            "branchColor": "#e6f7ff",
+            "branchMetalness": 0.25,
+            "branchRoughness": 0.35,
+            "branchWidthRatio": 0.13,
+            "branchLengthRatio": 0.65,
+            "branchSideOffsetRatio": 0.2,
+            "branchEndOffsetRatio": 0.48,
+            "branchRotationRadians": 0.7853981633974483,
+            "branchSides": [
+                -1,
+                1
+            ],
+            "branchEnds": [
+                -1,
+                1
+            ],
+            "centerRadiusRatio": 0.24,
+            "centerSegments": 6,
+            "clearanceRatio": 1.1
+        },
+        "gift": {
+            "ribbonColor": "#fff0a8",
+            "bowColor": "#c91532",
+            "bowLoopRadiusRatio": 0.25,
+            "bowTubeRadiusRatio": 0.07,
+            "bowKnotRadiusRatio": 0.12,
+            "giftSizeRatio": [
+                1.5,
+                1.5,
+                1.1
+            ],
+            "ribbonWidthRatio": 0.2,
+            "ribbonDepthRatio": 1.13,
+            "verticalRibbonHeightRatio": 1.53,
+            "ribbonHorizontalWidthRatio": 1.53,
+            "ribbonMetalness": 0.2,
+            "ribbonRoughness": 0.35,
+            "bowLoopOffsetXRatio": 0.18,
+            "bowLoopOffsetYRatio": 0.08,
+            "bowLoopOffsetZRatio": 0.55,
+            "bowLoopSegments": [
+                8,
+                20
+            ],
+            "bowLoopSides": [
+                -1,
+                1
+            ],
+            "bowLoopRotationRadians": 0.3,
+            "bowLoopScale": [
+                1.3,
+                0.7,
+                0.8
+            ],
+            "bowKnotOffsetZRatio": 0.62,
+            "bowKnotSegments": [
+                12,
+                8
+            ],
+            "clearanceRatio": 1.25
+        },
+        "bell": {
+            "referenceRadius": 0.12,
+            "bodyRadius": 0.12,
+            "bodyHeight": 0.18,
+            "bodyY": 0.05,
+            "bodyHeightSegments": 1,
+            "bodyOpenEnded": true,
+            "rimRadius": 0.11,
+            "rimTubeRadius": 0.015,
+            "rimY": -0.04,
+            "segments": 16,
+            "rimSegments": [
+                8,
+                16
+            ],
+            "trimColor": "#ffd700",
+            "trimMetalness": 0.8,
+            "trimRoughness": 0.22,
+            "trimTubeRadius": 0.018,
+            "trimRadiusRatio": 0.82,
+            "loopRadius": 0.06,
+            "loopTubeRadiusRatio": 0.7,
+            "loopPositionYRatio": 0.65,
+            "emblemRadius": 0.03,
+            "emblemPositionZRatio": 0.82,
+            "clapperRadius": 0.03,
+            "clapperY": -0.05,
+            "clapperSegments": [
+                8,
+                8
+            ],
+            "clapperColor": "#ffd700",
+            "clearanceRadiusRatio": 1.3,
+            "maxTiltRadians": 0.2
+        },
+        "candyCane": {
+            "points": [
+                [
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1.5,
+                    0
+                ],
+                [
+                    -0.25,
+                    2,
+                    0
+                ],
+                [
+                    -0.6,
+                    1.75,
+                    0
+                ]
+            ],
+            "shapeScaleRatio": 1.5,
+            "tubeRadiusRatio": 0.15,
+            "tubularSegments": 20,
+            "radialSegments": 8,
+            "stripeBaseColor": "#fff8e8",
+            "stripeAccentColor": "#e31837",
+            "stripeCount": 4,
+            "stripeTurns": 1,
+            "clearanceRadiusRatio": 2
+        },
+        "wreath": {
+            "ringScaleRatio": 1.5,
+            "ringTubeRadiusRatio": 0.3,
+            "ringTubularSegments": 96,
+            "ringRadialSegments": 12,
+            "ringColor": "#14532d",
+            "foliageCount": 16,
+            "foliageColor": "#0b6623",
+            "foliageRadiusRatio": 0.12,
+            "foliageLengthRatio": 0.5,
+            "foliageSegments": 6,
+            "berryColor": "#ff0000",
+            "berryRadiusRatio": 0.22,
+            "berrySegments": [
+                16,
+                16
+            ],
+            "berries": [
+                [
+                    0.38,
+                    1.05,
+                    0.25
+                ],
+                [
+                    0.68,
+                    0.9,
+                    0.25
+                ],
+                [
+                    0.88,
+                    0.62,
+                    0.25
+                ]
+            ],
+            "foliageDepthRatio": 0.08,
+            "bowLoopRadiusRatio": 0.2,
+            "bowTubeRadiusRatio": 0.055,
+            "bowSegments": [
+                8,
+                20
+            ],
+            "bowSides": [
+                -1,
+                1
+            ],
+            "bowOffsetRatio": 0.2,
+            "bowRotationRadians": 0.35,
+            "bowScale": [
+                1.35,
+                0.7,
+                0.7
+            ],
+            "bowKnotRadiusRatio": 0.1,
+            "bowKnotSegments": [
+                12,
+                8
+            ],
+            "bowKnotDepthOffsetRatio": 0.05,
+            "bowMetalness": 0.1,
+            "bowRoughness": 0.4,
+            "bowPosition": [
+                0,
+                1.08,
+                0.25
+            ],
+            "clearanceRadiusRatio": 2.4
+        },
+        "stocking": {
+            "outline": [
+                [
+                    "moveTo",
+                    0,
+                    0.1
+                ],
+                [
+                    "lineTo",
+                    0.05,
+                    0.1
+                ],
+                [
+                    "lineTo",
+                    0.05,
+                    0.1
+                ],
+                [
+                    "lineTo",
+                    0.05,
+                    -0.1
+                ],
+                [
+                    "lineTo",
+                    0.22,
+                    -0.28
+                ],
+                [
+                    "quadraticCurveTo",
+                    0.27,
+                    -0.37,
+                    0.15,
+                    -0.34
+                ],
+                [
+                    "lineTo",
+                    0.01,
+                    -0.2
+                ],
+                [
+                    "lineTo",
+                    -0.05,
+                    -0.15
+                ],
+                [
+                    "lineTo",
+                    -0.07,
+                    -0.1
+                ],
+                [
+                    "lineTo",
+                    -0.07,
+                    0.1
+                ]
+            ],
+            "referenceSize": 0.22,
+            "silhouetteWidth": 0.34,
+            "thicknessWidthRatio": 0.3333333333,
+            "bodyBevelThicknessRatio": 0.16,
+            "bodyBevelSize": 0.09,
+            "bevelSegments": 8,
+            "materialRoughness": 1,
+            "materialMetalness": 0,
+            "cuffSize": [
+                0.32,
+                0.1
+            ],
+            "cuffX": 0,
+            "cuffY": 0.13,
+            "cuffZ": 0.004,
+            "cuffWallThickness": 0.018,
+            "cuffColor": "#eb6ea0",
+            "cuffColors": [
+                "#ffd700",
+                "#ff3333",
+                "#ffffff",
+                "#3399ff",
+                "#00ac9a",
+                "#eb6ea0",
+                "#eb6ea0",
+                "#00ac9a"
+            ],
+            "cuffFoldWidthRatio": 0.98,
+            "cuffFoldHeight": 0.022,
+            "cuffFoldDepth": 0.006,
+            "cuffFoldInset": 0.001,
+            "cuffFoldColor": "#f28caf",
+            "cuffFoldColors": [
+                "#ffe680",
+                "#ff7777",
+                "#ffffff",
+                "#88ccff",
+                "#52cabb",
+                "#f28caf",
+                "#f28caf",
+                "#52cabb"
+            ],
+            "cuffSeamHeight": 0.003,
+            "cuffSeamOffset": 0.001,
+            "cuffSeamColor": "#ce5c82",
+            "cuffSeamColors": [
+                "#b38b00",
+                "#a61f1f",
+                "#dddddd",
+                "#2469a8",
+                "#087a70",
+                "#ce5c82",
+                "#ce5c82",
+                "#087a70"
+            ],
+            "clearanceRadiusRatio": 1.8
+        }
+    },
+    "controls": {
+        "moveStep": 0.2,
+        "rotateStepDegrees": 5,
+        "decorationLevelStep": 0.22,
+        "decorationCollisionGap": 0.04,
+        "initialDecoration": "ball",
+        "keys": {
+            "zoomIn": "w",
+            "zoomOut": "s",
+            "rotateLeft": "a",
+            "rotateRight": "d",
+            "toggleNight": "l",
+            "print": "p",
+            "savedState": "m",
+            "deleteAll": "Delete"
+        }
+    }
+}

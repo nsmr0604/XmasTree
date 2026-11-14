@@ -1,0 +1,243 @@
+/*
+    出典: 本プロジェクト独自実装。画面要素は main/index.html に定義。
+    処理: 操作・保存パネルを配置し、通常画面、印刷用A4、狭い画面の表示を切り替える。
+*/
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--scene-background);
+}
+
+/* 操作メニューと案内を画面左上に固定する。 */
+#controlsPanel {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+}
+
+/* 保存番号、操作メッセージ、呼び出し欄を画面右側にまとめる。 */
+#savedStatePanel {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+    display: grid;
+    gap: 8px;
+    width: min(320px, calc(100vw - 24px));
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    background: rgba(25, 45, 65, 0.94);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    color: white;
+    font: 14px/1.5 sans-serif;
+}
+
+#savedStatePanel[hidden] {
+    display: none;
+}
+
+#savedStateCode {
+    font-weight: bold;
+}
+
+#decorationStatus {
+    color: #ffe3a3;
+}
+
+#decorationMenu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    background: rgba(25, 45, 65, 0.94);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    color: white;
+    font: 14px sans-serif;
+}
+
+#decorationChoices {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    gap: 6px;
+}
+
+#operationGuide {
+    margin-top: 8px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    background: rgba(25, 45, 65, 0.94);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    color: white;
+    font: 14px/1.5 sans-serif;
+}
+
+#savedStateForm {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+#savedStateForm[hidden] {
+    display: none;
+}
+
+#savedStateForm input {
+    width: 7em;
+    padding: 6px;
+    border: 0;
+    border-radius: 4px;
+    font: inherit;
+}
+
+#savedStateForm button {
+    padding: 7px 9px;
+    border: 0;
+    border-radius: 6px;
+    background: #f3f6fa;
+    cursor: pointer;
+    font: inherit;
+}
+
+#operationGuide ul {
+    margin: 6px 0 0;
+    padding-left: 20px;
+}
+
+#decorationMenu button {
+    padding: 7px 9px;
+    border: 0;
+    border-radius: 6px;
+    background: #f3f6fa;
+    color: #17212b;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#decorationMenu button:hover,
+#decorationMenu button:focus-visible {
+    background: #ffd86b;
+    outline: 2px solid white;
+}
+
+#decorationMenu button[aria-pressed="true"] {
+    background: #ffd86b;
+    box-shadow: inset 0 0 0 2px #8f5a00;
+    font-weight: bold;
+}
+
+#printButton {
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 6px;
+    background: #c9e8ff;
+    color: #17212b;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* PNG印刷画像は通常画面では隠し、印刷時だけ表示する。 */
+#printImage {
+    display: none;
+}
+
+#printHeader {
+    display: none;
+}
+
+#printSaveCode {
+    display: none;
+}
+
+/* ブラウザーの印刷用紙を余白なしのA4縦に指定する。 */
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+/* 印刷時は操作メニューとWebGL canvasを隠し、PNG画像を用紙に合わせる。 */
+@media print {
+    html,
+    body,
+    #app {
+        width: var(--print-paper-width);
+        height: var(--print-paper-height);
+        margin: 0;
+        overflow: hidden;
+    }
+
+    #app {
+        position: relative;
+    }
+
+    #controlsPanel {
+        display: none !important;
+    }
+
+    #savedStatePanel {
+        display: none !important;
+    }
+
+    #mainCanvas {
+        display: none;
+    }
+
+    #printImage {
+        display: block;
+        width: var(--print-paper-width);
+        height: var(--print-paper-height);
+        background-color: var(--scene-background);
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    #printHeader {
+        position: absolute;
+        top: var(--print-header-top);
+        right: var(--print-header-side);
+        left: var(--print-header-side);
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        color: #17212b;
+        font-family: "BIZ UDゴシック", "BIZ UDGothic", sans-serif;
+        font-size: var(--print-header-font-size);
+        line-height: 1.2;
+        pointer-events: none;
+    }
+
+    #printHeader span {
+        font-weight: bold;
+    }
+
+    #printSaveCode {
+        position: absolute;
+        right: var(--print-save-code-side);
+        bottom: var(--print-save-code-bottom);
+        z-index: 1;
+        display: block;
+        color: #17212b;
+        font-family: "BIZ UDゴシック", "BIZ UDGothic", sans-serif;
+        font-size: var(--print-save-code-font-size);
+        font-weight: bold;
+    }
+}
+
+/* 狭い画面では保存パネルの位置を調整する。 */
+@media (max-width: 700px) {
+    #savedStatePanel {
+        top: auto;
+        bottom: 12px;
+        left: auto;
+    }
+}

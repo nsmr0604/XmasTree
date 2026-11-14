@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+    出典: 本プロジェクト独自実装。アプリ画面と操作UIを定義する。
+    処理: 3D canvas、操作案内、保存番号、印刷要素を配置し、app.jsを起動する。
+    Three.js r186 is included in assets/three/.
+    Copyright 2010-2026 Three.js Authors
+    Licensed under the MIT License. See the project README.md for the license text.
+-->
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>&#127876;クリスマスツリー&#127876;</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+        <!-- Three.jsの描画面と印刷用に生成する静止画像。 -->
+        <div id="app">
+            <canvas id="mainCanvas"></canvas>
+            <img id="printImage" alt="クリスマスツリーの印刷画像">
+            <header id="printHeader" aria-label="印刷ヘッダー">
+                <span>中央・城北 職業能力開発センター<br> ＯＡシステム開発科</span>
+                <time id="printDate"></time>
+            </header>
+            <span id="printSaveCode" aria-label="保存番号"></span>
+        </div>
+
+        <!-- 選択中の飾りを保持し、葉をクリックした位置へ配置する。 -->
+        <div id="controlsPanel">
+            <div id="decorationMenu" role="group" aria-label="飾りを選択">
+                <div id="decorationChoices" role="group" aria-label="飾り">
+                    <button type="button" data-decoration="ball" aria-pressed="true">ボール</button>
+                    <button type="button" data-decoration="star" aria-pressed="false">星</button>
+                    <button type="button" data-decoration="snowflake" aria-pressed="false">雪の結晶</button>
+                    <button type="button" data-decoration="gift" aria-pressed="false">プレゼント</button>
+                    <button type="button" data-decoration="candyCane" aria-pressed="false">キャンディケイン</button>
+                    <button type="button" data-decoration="wreath" aria-pressed="false">リース</button>
+                    <button type="button" data-decoration="bell" aria-pressed="false">ベル</button>
+                    <button type="button" data-decoration="stocking" aria-pressed="false">靴下</button>
+                    <button type="button" id="nightButton" aria-pressed="true" hidden>夜</button>
+                </div>
+                <button type="button" id="printButton" hidden>印刷</button>
+            </div>
+            <aside id="operationGuide" aria-label="操作方法">
+                <strong>操作方法</strong>
+                <ul>
+                    <li id="cameraZoomInstruction"></li>
+                    <li id="cameraRotationInstruction"></li>
+                    <li id="deleteAllInstruction"></li>
+                    <li>飾りは自動保存</li>
+                    <li id="savedStateKeyInstruction" hidden></li>
+                    <li id="nightKeyInstruction" hidden></li>
+                    <li>飾りを選び、葉をクリックして配置</li>
+                    <li id="printKeyInstruction" hidden></li>
+                </ul>
+            </aside>
+        </div>
+
+        <!-- 保存番号と操作結果は、保存番号のキー操作で開く入力フォームと共用する。 -->
+        <aside id="savedStatePanel" aria-label="保存番号とメッセージ" hidden>
+            <span id="savedStateCode" aria-live="polite" hidden></span>
+            <span id="decorationStatus" role="status" aria-live="polite" hidden></span>
+            <form id="savedStateForm" hidden>
+                <label for="savedStateCodeInput">
+                    保存番号（<span id="savedStateCodeLength"></span>桁）
+                </label>
+                <input
+                    id="savedStateCodeInput"
+                    name="saveCode"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit">呼び出す</button>
+                <button type="button" id="resetSavedStateButton">初期化（新番号）</button>
+            </form>
+        </aside>
+
+        <script src="./assets/app.js" type="module"></script>
+    </body>
+</html>
